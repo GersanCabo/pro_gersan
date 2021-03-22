@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo.elementos,Ciudad,47,14,7,1,15,6,10,2,6,2
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo.elementos,Pasajero,48,37,8,4,13,12,10,5,5,4
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo,ListaCiudades,11,29,1,1,3,9,2,4,1,4
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo,ListaPasajeros,16,69,3,5,4,22,4,7,1,6
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo.exceptions,PasajeroException,9,0,0,0,4,0,2,0,2,0
+Examen_2_Evaluacion_GersanCabo,es.iespuertodelacruz.gersancabo.validaciones,DniValidacion,25,0,0,0,7,0,2,0,2,0

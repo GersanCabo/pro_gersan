@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListaPasajeros.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Examen_2_Evaluacion_GersanCabo</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">ListaPasajeros.java</span></div><h1>ListaPasajeros.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.util.ArrayList;
+
+import es.iespuertodelacruz.gersancabo.elementos.Pasajero;
+import es.iespuertodelacruz.gersancabo.exceptions.PasajeroException;
+
+public class ListaPasajeros {
+    
+<span class="pc" id="L10">    ArrayList &lt;Pasajero&gt; pasajeros = new ArrayList&lt;&gt;();</span>
+    
+
+<span class="nc" id="L13">    public ListaPasajeros(ArrayList&lt;Pasajero&gt; pasajeros) {</span>
+<span class="nc" id="L14">        this.pasajeros = pasajeros;</span>
+<span class="nc" id="L15">    }</span>
+
+
+<span class="fc" id="L18">    public ListaPasajeros() {</span>
+<span class="fc" id="L19">    }</span>
+
+    /**
+     * Metodo que inserta un pasajero
+     * @param pasajero a insertar
+     * @throws PasajeroException excepcion en caso de error al insertar
+     */
+    public void insertar(Pasajero pasajero) throws PasajeroException {
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (!existe(pasajero)) {</span>
+<span class="fc" id="L28">            pasajeros.add(pasajero);</span>
+        } else {
+<span class="nc" id="L30">            throw new PasajeroException(&quot;No se ha podido insertar el pasajero&quot;);</span>
+        }
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * Metodo que nos dice si un pasajero existe en la lista o no
+     * @param pasajero a buscar
+     * @return true/false dependiendo de si existe o no
+     */
+    public boolean existe(Pasajero pasajero) {
+<span class="fc" id="L40">        return pasajeros.contains(pasajero);</span>
+    }
+
+    /**
+     * Metodo que elimina un pasajero
+     * @param pasajero a eliminar
+     */
+    public void eliminar(Pasajero pasajero) {
+<span class="fc" id="L48">        pasajeros.remove(pasajero);</span>
+<span class="fc" id="L49">    }</span>
+
+    /**
+     * Metodo que busca un pasajero segun su dni
+     * @param dni del pasajero a buscar
+     * @return el pasajero si esta en la lista
+     */
+    public Pasajero buscar(String dni) {
+<span class="fc" id="L57">        boolean encontrar = false;</span>
+<span class="fc" id="L58">        int i = 0;</span>
+<span class="fc" id="L59">        Pasajero pasajeroEncontrado = null;</span>
+<span class="pc bpc" id="L60" title="1 of 4 branches missed.">        while(i &lt; pasajeros.size() || !encontrar) {</span>
+<span class="fc" id="L61">            Pasajero pasajero = pasajeros.get(i);</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            if (pasajero.getDni().equalsIgnoreCase(dni)) {</span>
+<span class="fc" id="L63">                encontrar = true;</span>
+<span class="fc" id="L64">                pasajeroEncontrado = pasajero;</span>
+            }
+<span class="fc" id="L66">            i++;</span>
+<span class="fc" id="L67">        }</span>
+        
+<span class="fc" id="L69">        return pasajeroEncontrado;</span>
+    }
+
+    /**
+     * Metodo que nos muestra las ciudades donde ha estado el pasajero
+     * @param dni del pasajero
+     * @return un String con la ciudad
+     */
+    public String mostrarCiudades(String dni) {
+<span class="fc" id="L78">        Pasajero pasajero = buscar(dni);</span>
+<span class="fc" id="L79">        return pasajero.getCiudad();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

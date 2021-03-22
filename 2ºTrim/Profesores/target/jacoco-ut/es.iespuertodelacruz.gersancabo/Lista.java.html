@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Lista.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Profesores</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">Lista.java</span></div><h1>Lista.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.util.ArrayList;
+
+import es.iespuertodelacruz.gersancabo.elementos.Profesor;
+
+public class Lista {
+<span class="fc" id="L8">    ArrayList&lt;Profesor&gt; lista = null;</span>
+
+    /**
+     * Constructor por defecto de lista
+     */
+<span class="fc" id="L13">    public Lista() {</span>
+<span class="fc" id="L14">        lista = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">     }</span>
+
+     /**
+      * Metodo encargado de relaizar insercion en la lista
+      * @param profesor a insertar
+     * @throws ProfesorException
+      */
+     public void insertar(Profesor profesor) throws ProfesorException {
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (!existe(profesor)) {</span>
+<span class="fc" id="L24">            lista.add(profesor);</span>
+        } else {
+<span class="nc" id="L26">            throw new ProfesorException(&quot;El profesor con DNI: &quot;+profesor.getDni()+</span>
+            &quot;ya existe en la lista&quot;);
+        }
+        
+<span class="fc" id="L30">     }</span>
+
+     /**
+      * Funcion encargada de verificar si existe el profesor 
+        en la lista
+      * @param profesor a buscar
+      * @return existe true/false
+      */
+
+      public boolean existe(Profesor profesor) {
+          /**
+         boolean existe = false;
+         int i = 0;
+         while (i &lt; lista.size() &amp;&amp; !existe) {
+             if (profesor.getDni().equals(lista.get(i).getDni())) {
+                 existe = true;
+             }
+             i++;
+         }
+         return existe;
+         // Pero pa poner esto mejor poner lo de abajo pero con el equals en profesor
+         */
+<span class="fc" id="L52">        return lista.contains(profesor);</span>
+     }
+
+     /**
+      * Funcion encargada de eliminar un elemento de la lista
+      * @param profesor a eliminar
+      */
+     public void eliminar(Profesor profesor) {
+<span class="fc" id="L60">        lista.remove(profesor);</span>
+<span class="fc" id="L61">     }</span>
+
+     /**
+      * Funcion encargada de listar los elementos de la lista
+      * @return String con todos los elementos de la lista
+      */
+     public String listar() {
+<span class="fc" id="L68">        return lista.toString();</span>
+     }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
