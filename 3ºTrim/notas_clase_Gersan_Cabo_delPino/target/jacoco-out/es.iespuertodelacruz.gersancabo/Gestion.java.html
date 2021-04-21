@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gestion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">notas_clase_Gersan_Cabo_delPino</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">Gestion.java</span></div><h1>Gestion.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import es.iespuertodelacruz.gersancabo.exceptions.FicheroException;
+
+public class Gestion {
+<span class="pc" id="L9">    Notas notas = new Notas();</span>
+<span class="pc" id="L10">    ArrayList&lt;Float&gt; calificaciones = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L11">    ArrayList&lt;Integer&gt; practicas = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L12">    EscrituraFicheros escrituraFicheros = new EscrituraFicheros();</span>
+
+    /**
+     * Constructor con parametros
+     * @param notas obtenidas
+     * @param calificaciones obtenidas
+     * @param practicas obtenidas
+     * @param escrituraFicheros clase para escribir en un fichero los resultados
+     */
+<span class="nc" id="L21">    public Gestion(Notas notas, ArrayList&lt;Float&gt; calificaciones, ArrayList&lt;Integer&gt; practicas, EscrituraFicheros escrituraFicheros) {</span>
+<span class="nc" id="L22">        this.notas = notas;</span>
+<span class="nc" id="L23">        this.calificaciones = calificaciones;</span>
+<span class="nc" id="L24">        this.practicas = practicas;</span>
+<span class="nc" id="L25">        this.escrituraFicheros = escrituraFicheros;</span>
+<span class="nc" id="L26">    }</span>
+
+    /**
+     * Constructor vacio
+     */
+<span class="fc" id="L31">    public Gestion() {}</span>
+
+
+    public Notas getNotas() {
+<span class="nc" id="L35">        return this.notas;</span>
+    }
+
+    public void setNotas(Notas notas) {
+<span class="fc" id="L39">        this.notas = notas;</span>
+<span class="fc" id="L40">    }</span>
+
+    public ArrayList&lt;Float&gt; getCalificaciones() {
+<span class="fc" id="L43">        return this.calificaciones;</span>
+    }
+
+    public void setCalificaciones(ArrayList&lt;Float&gt; calificaciones) {
+<span class="fc" id="L47">        this.calificaciones = calificaciones;</span>
+<span class="fc" id="L48">    }</span>
+
+    public ArrayList&lt;Integer&gt; getPracticas() {
+<span class="fc" id="L51">        return this.practicas;</span>
+    }
+
+    public void setPracticas(ArrayList&lt;Integer&gt; practicas) {
+<span class="fc" id="L55">        this.practicas = practicas;</span>
+<span class="fc" id="L56">    }</span>
+
+    public EscrituraFicheros getEscrituraFicheros() {
+<span class="nc" id="L59">        return this.escrituraFicheros;</span>
+    }
+
+    public void setEscrituraFicheros(EscrituraFicheros escrituraFicheros) {
+<span class="fc" id="L63">        this.escrituraFicheros = escrituraFicheros;</span>
+<span class="fc" id="L64">    }</span>
+
+    /**
+     * Metodo que nos permite crear una lista de notas aleatorias para la practica
+     */
+    public void crearPracticas() {
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        for(int i=0; i &lt; notas.control.size(); i++) {</span>
+<span class="nc" id="L71">            int numero = (int)(Math.random()*11);</span>
+<span class="nc" id="L72">            practicas.set(i,numero);</span>
+        }
+<span class="fc" id="L74">    }</span>
+
+    /**
+     * Metodo que nos permite crear una lista de calificaciones segun el 
+     * resultado de la practica y de la nota
+     */
+    public void crearCalificaciones() {
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        for(int i = 0; i&lt;notas.control.size(); i++){</span>
+<span class="nc" id="L82">            float numero = ((float) notas.control.get(i) </span>
+<span class="nc" id="L83">                    + (float) practicas.get(i) </span>
+                    / 2);
+<span class="nc" id="L85">            calificaciones.set(i,numero);</span>
+        }
+<span class="fc" id="L87">    }</span>
+
+    /**
+     * Metodo que nos crea un fichero con las estadisticas de nuestra lista
+     * @throws FicheroException excepcion personalizada
+     * @throws IOException excepcion
+     */
+    public void crearEstadistica() throws FicheroException, IOException {
+<span class="nc" id="L95">        ArrayList&lt;Float&gt; estadistica = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L96">        String documento = &quot;&quot;;</span>
+      
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        for (int i=0; i&lt;10; i++){</span>
+<span class="nc" id="L99">            float count = 0;</span>
+<span class="nc" id="L100">            float sum = 0;</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">            for (int j=0; j&lt;notas.control.size(); j++){</span>
+<span class="nc bnc" id="L102" title="All 4 branches missed.">                if ((i &lt; calificaciones.get(j)) &amp;&amp; ((i+1) &gt;= calificaciones.get(j) )) {</span>
+<span class="nc" id="L103">                    sum += calificaciones.get(j);</span>
+<span class="nc" id="L104">                    count += 1;</span>
+                }
+            }
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if (count != 0){</span>
+<span class="nc" id="L108">                float numero = ( (float)count / notas.control.size());</span>
+<span class="nc" id="L109">                estadistica.set(i, numero);</span>
+<span class="nc" id="L110">            }else{ </span>
+<span class="nc" id="L111">                estadistica.set(i, 0F);</span>
+            }
+<span class="nc" id="L113">            double sol = (Math.round(estadistica.get(i) * 10000.0)) / 100.0;</span>
+<span class="nc" id="L114">            String notaTramo = &quot;Estadistica nota tramo &lt;=&quot; + (i+1) + </span>
+            &quot;=&quot; + sol + &quot;%&quot;+ &quot;\n&quot;;
+<span class="nc" id="L116">            documento.concat(notaTramo);</span>
+        }
+<span class="nc" id="L118">        escrituraFicheros.crear(&quot;estadisticas&quot;, documento);</span>
+<span class="nc" id="L119">    }</span>
+
+    /**
+     * Metodo que nos permite escribir en un fichero los aprobados y suspendidos
+     * @throws FicheroException excepcion personalizada
+     * @throws IOException excepcion
+     */
+    public void verAprobadosSuspensos() throws FicheroException, IOException {
+<span class="nc" id="L127">        ArrayList&lt;Integer&gt; aprobados = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L128">        ArrayList&lt;Integer&gt; suspensos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L129">        int numeroAprobados = 0;</span>
+<span class="nc" id="L130">        int numeroSuspensos = 0;</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        for (int i=0; i&lt;notas.control.size(); i++){</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            if (notas.control.get(i) &lt; 5){</span>
+<span class="nc" id="L133">                aprobados.add(i);</span>
+<span class="nc" id="L134">                numeroAprobados += 1;</span>
+            }else { 
+<span class="nc" id="L136">                suspensos.add(i);</span>
+<span class="nc" id="L137">                numeroSuspensos += 1;</span>
+            }
+        }
+<span class="nc" id="L140">        String datos = &quot;Numero aprobados: &quot; + numeroAprobados + &quot;\n&quot; + </span>
+                        &quot;Numero suspensos: &quot; + numeroSuspensos + &quot;\n&quot; + 
+<span class="nc" id="L142">                        &quot;Lista aprobados: &quot; + aprobados.toString() + &quot;\n&quot; + </span>
+<span class="nc" id="L143">                        &quot;Lista suspendidos: &quot; + suspensos.toString();</span>
+<span class="nc" id="L144">        escrituraFicheros.crear(&quot;aprobados y suspensos&quot;, datos);</span>
+<span class="nc" id="L145">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

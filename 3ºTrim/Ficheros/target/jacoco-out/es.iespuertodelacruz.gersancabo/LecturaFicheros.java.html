@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LecturaFicheros.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ficheros</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">LecturaFicheros.java</span></div><h1>LecturaFicheros.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.io.File;
+import java.util.Scanner;
+
+import es.iespuertodelacruz.gersancabo.exception.FicheroException;
+
+<span class="nc" id="L8">public class LecturaFicheros {</span>
+    
+    /**
+    * Funcion encargada de leer un fichero
+    * 
+    * @param nombre nombre del fichero a leer
+    * @throws FicheroException Error controlado en la lectura del fichero
+    */
+   public String leer(String nombre) throws FicheroException {
+<span class="nc" id="L17">        StringBuilder informacion = null;</span>
+<span class="nc" id="L18">        File fichero = null;</span>
+<span class="nc" id="L19">        Scanner scanner = null;</span>
+
+        try {
+<span class="nc" id="L22">            fichero = new File(nombre);</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (!validarFichero(fichero)) {</span>
+<span class="nc" id="L24">                throw new FicheroException(&quot;El fichero a leer no existe&quot;);</span>
+            }
+<span class="nc" id="L26">            informacion = new StringBuilder();</span>
+<span class="nc" id="L27">            scanner = new Scanner(fichero);</span>
+
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            while (scanner.hasNextLine()) {</span>
+<span class="nc" id="L30">                String linea = scanner.nextLine(); // Guardamos la linea en un String</span>
+<span class="nc" id="L31">                informacion.append(linea + &quot;/n&quot;);</span>
+<span class="nc" id="L32">            }</span>
+<span class="nc" id="L33">        } catch (FicheroException e) {  </span>
+<span class="nc" id="L34">            throw e;</span>
+<span class="nc" id="L35">        }catch (Exception e) {</span>
+<span class="nc" id="L36">            throw new FicheroException(&quot;Se ha producido un error en la lectura del fichero&quot;, e);</span>
+        } finally {
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (scanner != null) {</span>
+<span class="nc" id="L39">                scanner.close();</span>
+            }
+        }
+<span class="nc" id="L42">        return informacion.toString();</span>
+    }
+
+    /**
+    * Funcion que verifica si el fichero existo
+    * @param fichero
+    * @return
+    */
+    public boolean validarFichero(File fichero) {
+<span class="nc" id="L51">        return fichero.exists();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

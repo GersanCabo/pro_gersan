@@ -1,0 +1,7 @@
+es/iespuertodelacruz/gersancabo/api/Fruta.class
+es/iespuertodelacruz/gersancabo/controlador/FrutaController.class
+es/iespuertodelacruz/gersancabo/modelo/Fichero.class
+es/iespuertodelacruz/gersancabo/vista/AppFruteria.class
+es/iespuertodelacruz/gersancabo/exception/FrutaException.class
+es/iespuertodelacruz/gersancabo/exception/FicheroException.class
+es/iespuertodelacruz/gersancabo/modelo/FrutaModelo.class

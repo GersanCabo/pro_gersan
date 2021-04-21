@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestionArrayList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TRABAJO CON LINKEDLIST</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">GestionArrayList.java</span></div><h1>GestionArrayList.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.util.ArrayList;
+
+import es.iespuertodelacruz.gersancabo.excepcion.FrutaException;
+
+
+public class GestionArrayList {
+
+    private static final String LA_LISTA_SE_ENUENTRA_VACIA = &quot;La lista se enuentra vacia&quot;;
+    ArrayList&lt;Fruta&gt; lista;
+
+<span class="fc" id="L13">    public GestionArrayList() {</span>
+<span class="fc" id="L14">        lista = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">    }</span>
+
+
+    public ArrayList&lt;Fruta&gt; getLista() {
+<span class="fc" id="L19">        return this.lista;</span>
+    }
+
+    /**
+     * Metodo que permite insertar en la lista
+     * @param fruta a insertar
+     */
+    public void insertar(Fruta fruta) {
+<span class="fc" id="L27">        lista.add(fruta);</span>
+<span class="fc" id="L28">    }</span>
+
+     /**
+     * Metodo que permite eliminar de la lista
+     * @param fruta a eliminar
+     * @throws FrutaException controlada
+     */
+    public void eliminar() throws FrutaException {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (lista.isEmpty()) {</span>
+<span class="fc" id="L37">            throw new FrutaException(LA_LISTA_SE_ENUENTRA_VACIA);</span>
+        }
+<span class="fc" id="L39">        lista.remove(0);</span>
+<span class="fc" id="L40">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L44">        return lista.toString();</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

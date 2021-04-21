@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Notas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">notas_clase_Gersan_Cabo_delPino</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">Notas.java</span></div><h1>Notas.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.util.ArrayList;
+
+public class Notas {
+<span class="fc" id="L6">    ArrayList&lt;Integer&gt; control = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L7">    int maximaNota = 0;</span>
+<span class="fc" id="L8">    int minimaNota = 0;</span>
+    int indiceMaximaNota;
+    int indiceMinimaNota;
+    int postEvaluacion;
+
+    /**
+     * Constructor con todos los parametros
+     * @param control lista de notas
+     * @param maximaNota nota maxima obtenida
+     * @param minimaNota nota minima pbtenida
+     * @param indiceMaximaNota indice marcado por la nota maxima
+     * @param indMinimaNota indice marcado por la nota minima
+     * @param postEvaluacion variable donde se guarda la nota referencia
+     * para saber si se ha superado la nota maxima o minima
+     */
+<span class="fc" id="L23">    public Notas(ArrayList&lt;Integer&gt; control, int maximaNota, int minimaNota, int indiceMaximaNota, int indMinimaNota, int postEvaluacion) {</span>
+<span class="fc" id="L24">        this.control = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">        this.maximaNota = maximaNota;</span>
+<span class="fc" id="L26">        this.minimaNota = minimaNota;</span>
+<span class="fc" id="L27">        this.indiceMaximaNota = indiceMaximaNota;</span>
+<span class="fc" id="L28">        this.indiceMinimaNota = indMinimaNota;</span>
+<span class="fc" id="L29">        this.postEvaluacion = postEvaluacion;</span>
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * Cosntructor vacio
+     */
+<span class="fc" id="L35">    public Notas() {}</span>
+
+    public void setControl(ArrayList&lt;Integer&gt; control) {
+<span class="fc" id="L38">        this.control = control;</span>
+<span class="fc" id="L39">    }</span>
+
+
+    public void setMaximaNota(int maximaNota) {
+<span class="fc" id="L43">        this.maximaNota = maximaNota;</span>
+<span class="fc" id="L44">    }</span>
+
+
+    public void setMinimaNota(int minimaNota) {
+<span class="fc" id="L48">        this.minimaNota = minimaNota;</span>
+<span class="fc" id="L49">    }</span>
+
+    public void setIndiceMaximaNota(int indiceMaximaNota) {
+<span class="fc" id="L52">        this.indiceMaximaNota = indiceMaximaNota;</span>
+<span class="fc" id="L53">    }</span>
+
+    public void setIndiceMinimaNota(int indiceMinimaNota) {
+<span class="fc" id="L56">        this.indiceMinimaNota = indiceMinimaNota;</span>
+<span class="fc" id="L57">    }</span>
+
+    public void setPostEvaluacion(int postEvaluacion) {
+<span class="fc" id="L60">        this.postEvaluacion = postEvaluacion;</span>
+<span class="fc" id="L61">    }</span>
+
+    /**
+     * Metodo que nos permite generar una lista de notas aleatorias
+     * @param numeroNotas a generar
+     */
+    public void generarNotas(int numeroNotas) {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        for(int i=0; i &lt; numeroNotas; i++) {</span>
+<span class="fc" id="L69">            int numero = (int)(Math.random()*11);</span>
+<span class="fc" id="L70">            control.add(numero);</span>
+        }
+<span class="fc" id="L72">    }</span>
+
+    /**
+     * Funcion que nos busca la menor nota en la lista
+     * @return menor nota
+     */
+    public Integer buscarMenor() {
+<span class="fc" id="L79">        postEvaluacion = 11;</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for(int i=0; i&lt;control.size(); i++){</span>
+<span class="fc" id="L81">            int preEvaluacion = control.get(i);</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">            if (preEvaluacion &lt; postEvaluacion){</span>
+<span class="fc" id="L83">                minimaNota = preEvaluacion;</span>
+<span class="fc" id="L84">                postEvaluacion = control.get(i);</span>
+            }
+        }
+<span class="fc" id="L87">        return minimaNota;</span>
+    }
+
+    /**
+     * Funcion que nos busca la mayor nota en la lista
+     * @return mayor nota
+     */
+    public Integer buscarMayor() {
+<span class="fc" id="L95">        postEvaluacion = 0;</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        for(int i=0; i&lt;control.size(); i++){</span>
+<span class="fc" id="L97">            int preEvaluacion = control.get(i);</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">            if (preEvaluacion &gt; postEvaluacion){</span>
+<span class="fc" id="L99">                maximaNota = preEvaluacion;</span>
+<span class="fc" id="L100">                postEvaluacion = control.get(i);</span>
+            }
+        }
+<span class="fc" id="L103">        return maximaNota;</span>
+    }
+
+    /**
+     * Funcion que nos permite listar la lista
+     * @return String con la lista listada
+     */
+    public String listar() {
+<span class="fc" id="L111">        return control.toString();</span>
+    }
+
+    /**
+     * Metodo que nos permite crear unos indices
+     */
+    public void crearIndices() {
+<span class="nc" id="L118">        indiceMinimaNota = control.indexOf(minimaNota) + 1;</span>
+<span class="nc" id="L119">        indiceMaximaNota = control.indexOf(maximaNota) + 1;</span>
+<span class="nc" id="L120">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: es.iespuertodelacruz.gersancabo.AppTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in es.iespuertodelacruz.gersancabo.AppTest
+insertarAlumnosTest  Time elapsed: 0.041 s  <<< ERROR!
+java.lang.NullPointerException
+	at es.iespuertodelacruz.gersancabo.AppTest.setUp(AppTest.java:30)
+
+insertarProfesoresTest  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NullPointerException
+	at es.iespuertodelacruz.gersancabo.AppTest.setUp(AppTest.java:30)
+
+insertarNotasTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at es.iespuertodelacruz.gersancabo.AppTest.setUp(AppTest.java:30)
+
+insertarAulasTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at es.iespuertodelacruz.gersancabo.AppTest.setUp(AppTest.java:30)
+

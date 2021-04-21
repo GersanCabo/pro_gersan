@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Planta.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Floristeria</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo.elementos</a> &gt; <span class="el_source">Planta.java</span></div><h1>Planta.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo.elementos;
+
+public class Planta {
+    
+    String id;
+    String nombre;
+    int tamanio;
+    float precioBase;
+    float precioFinal;
+    int articulos;
+
+<span class="fc" id="L12">    public Planta(String id, String nombre, int tamanio, float precioBase, int articulos) {</span>
+<span class="fc" id="L13">        this.id = id;</span>
+<span class="fc" id="L14">        this.nombre = nombre;</span>
+<span class="fc" id="L15">        this.tamanio = tamanio;</span>
+<span class="fc" id="L16">        this.precioBase = precioBase;</span>
+<span class="fc" id="L17">        this.articulos = articulos;</span>
+<span class="fc" id="L18">    }</span>
+
+    public String getId() {
+<span class="fc" id="L21">        return this.id;</span>
+    }
+
+    public String getNombre() {
+<span class="fc" id="L25">        return this.nombre;</span>
+    }
+
+    public int getTamanio() {
+<span class="fc" id="L29">        return this.tamanio;</span>
+    }
+
+    public float getPrecioBase() {
+<span class="fc" id="L33">        return this.precioBase;</span>
+    }
+
+    public float getPrecioFinal() {
+<span class="fc" id="L37">        return this.precioFinal;</span>
+    }
+
+    public void setPrecioFinal(float precioFinal) {
+<span class="fc" id="L41">        this.precioFinal = precioFinal;</span>
+<span class="fc" id="L42">    }</span>
+
+    public int getArticulos() {
+<span class="fc" id="L45">        return this.articulos;</span>
+    }
+
+
+    @Override
+    public String toString() {
+<span class="fc" id="L51">        return</span>
+<span class="fc" id="L52">            &quot;id='&quot; + getId() + &quot;'&quot; + &quot;/n&quot; +</span>
+<span class="fc" id="L53">            &quot;nombre='&quot; + getNombre() + &quot;'&quot; + &quot;/n&quot; +</span>
+<span class="fc" id="L54">            &quot;tamanio='&quot; + getTamanio() + &quot;'&quot; + &quot;/n&quot; +</span>
+<span class="fc" id="L55">            &quot;precioBase='&quot; + getPrecioBase() + &quot;'&quot; + &quot;/n&quot; +</span>
+<span class="fc" id="L56">            &quot;precioFinal='&quot; + getPrecioFinal() + &quot;'&quot; + &quot;/n&quot; +</span>
+<span class="fc" id="L57">            &quot;articulos='&quot; + getArticulos() + &quot;'&quot;;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

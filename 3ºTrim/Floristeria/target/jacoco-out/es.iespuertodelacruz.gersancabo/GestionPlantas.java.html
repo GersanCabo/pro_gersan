@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestionPlantas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Floristeria</a> &gt; <a href="index.source.html" class="el_package">es.iespuertodelacruz.gersancabo</a> &gt; <span class="el_source">GestionPlantas.java</span></div><h1>GestionPlantas.java</h1><pre class="source lang-java linenums">package es.iespuertodelacruz.gersancabo;
+
+import java.util.HashMap;
+
+import es.iespuertodelacruz.gersancabo.elementos.Planta;
+
+public class GestionPlantas {
+
+<span class="fc" id="L9">    HashMap&lt;String, Planta&gt; plantas = null;</span>
+
+    /**
+     * Constructor
+     */
+<span class="fc" id="L14">    public GestionPlantas() {</span>
+<span class="fc" id="L15">        plantas = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L16">    }     </span>
+
+    /**
+     * Metodo que inserta una planta en la lista
+     * @param id de la planta
+     * @param planta a insertar
+     */
+    public void insertar(String id, Planta planta, Float ganancia) {
+<span class="fc" id="L24">        planta.setPrecioFinal(planta.getPrecioBase()*ganancia);</span>
+<span class="fc" id="L25">        plantas.put(id, planta);</span>
+<span class="fc" id="L26">    }</span>
+
+    /**
+     * Funcion que busca una planta mediante su id
+     * @param id de la planta a buscar
+     * @return la planta con esa id
+     */
+    public Planta buscarId(String id) {
+<span class="fc" id="L34">        return plantas.get(id);</span>
+    }
+
+    /**
+     * Funcion que busca una planta en la lista
+     * @param planta a buscar
+     * @return planta encontrada
+     */
+    public Planta buscarPlanta(Planta planta) {
+<span class="fc" id="L43">        String id = planta.getId();</span>
+<span class="fc" id="L44">        return plantas.get(id);</span>
+    }
+
+    /**
+     * Funcion que cuenta los articulos que tiene una 
+     * determinada planta
+     * @param id de la planta de la que queremos ver 
+     * su numero de articulos
+     * @return numero de articulos (int)
+     */
+    public int contarArticulos(String id) {
+<span class="fc" id="L55">        Planta planta = buscarId(id);</span>
+<span class="fc" id="L56">        return planta.getArticulos();</span>
+    }
+
+    /**
+     * Metodo que elimina una planta de la lista
+     * @param id de la planta a eliminar
+     */
+    public void eliminar(String id) {
+<span class="fc" id="L64">        plantas.remove(id);</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Funcion que nos muestra la informacion de una planta
+     * @param id de la planta de la que queremos obtener informacion
+     */
+    public String mostrarInformacion(String id) {
+<span class="fc" id="L72">        Planta planta = buscarId(id);</span>
+<span class="fc" id="L73">        return planta.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+notas_clase_Gersan_Cabo_delPino,es.iespuertodelacruz.gersancabo,EscrituraFicheros,49,3,2,0,16,2,3,1,2,1
+notas_clase_Gersan_Cabo_delPino,es.iespuertodelacruz.gersancabo,Gestion,285,63,16,2,47,19,14,9,5,9
+notas_clase_Gersan_Cabo_delPino,es.iespuertodelacruz.gersancabo,Notas,21,171,0,10,3,43,1,17,1,12
+notas_clase_Gersan_Cabo_delPino,es.iespuertodelacruz.gersancabo.exceptions,FicheroException,9,0,0,0,4,0,2,0,2,0

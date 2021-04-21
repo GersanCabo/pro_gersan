@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: es.iespuertodelacruz.gersancabo.ClaseTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.082 s <<< FAILURE! - in es.iespuertodelacruz.gersancabo.ClaseTest
+eliminarAlumno  Time elapsed: 0.052 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ah producido un error al crear la lista de inicio
+	at es.iespuertodelacruz.gersancabo.ClaseTest.setUp(ClaseTest.java:28)
+
+insertarTestAlumno  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ah producido un error al crear la lista de inicio
+	at es.iespuertodelacruz.gersancabo.ClaseTest.setUp(ClaseTest.java:28)
+
+insertarTestErrorAlumno  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ah producido un error al crear la lista de inicio
+	at es.iespuertodelacruz.gersancabo.ClaseTest.setUp(ClaseTest.java:28)
+
